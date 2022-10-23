@@ -28,7 +28,7 @@ Strona główna:
 - http://127.0.0.1:8080/
 
 Endpoint Listy produktów:
-- http://127.0.0.1:8080/products/
+- http://127.0.0.1:8080/products
 
 Endpoint konkretnego produktu:
 - http://127.0.0.1:8080/products/1
@@ -46,7 +46,7 @@ Strona główna:
 - http://127.0.0.1:8181/
 
 Endpoint Listy produktów:
-- http://127.0.0.1:8181/products/
+- http://127.0.0.1:8181/products
 
 Endpoint konkretnego produktu:
 - http://127.0.0.1:8181/products/1
