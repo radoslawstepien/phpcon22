@@ -33,7 +33,7 @@ Endpoint Listy produktów:
 Endpoint konkretnego produktu:
 - http://127.0.0.1:8080/products/1
 - http://127.0.0.1:8080/products/2
-- http://127.0.0.1:8080/products/3
+- http://127.0.0.1:8080/products/3 (404)
 
 ### 4. uruchomienie aplikacji z pomocą docker-compose
 
@@ -51,7 +51,7 @@ Endpoint Listy produktów:
 Endpoint konkretnego produktu:
 - http://127.0.0.1:8181/products/1
 - http://127.0.0.1:8181/products/2
-- http://127.0.0.1:8181/products/3
+- http://127.0.0.1:8181/products/3 (404)
 
 ## Jesteś gotowy
 
