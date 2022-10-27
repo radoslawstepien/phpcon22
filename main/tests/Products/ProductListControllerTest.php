@@ -2,6 +2,7 @@
 
 namespace Tbd\Main\Tests\Products;
 
+use Tbd\Main\FeatureFlags\FeatureFlag;
 use Tbd\Main\Products\Product;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -33,11 +34,15 @@ class ProductListControllerTest extends TestCase
         $output='[
     {
         "id": 1,
-        "name": "test"
+        "name": "test",
+        "description": "description",
+        "price": 100.0
     },
     {
         "id": 2,
-        "name": "test2"
+        "name": "test2",
+        "description": "description2",
+        "price": 200.0
     }
 ]';
         $this->assertEquals($output, (string) trim($response->getBody()));
