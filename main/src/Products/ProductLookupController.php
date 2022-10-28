@@ -4,6 +4,7 @@ namespace Tbd\Main\Products;
 
 use Psr\Http\Message\ServerRequestInterface;
 use React\Http\Message\Response;
+
 class ProductLookupController
 {
     private $repository;
@@ -23,11 +24,8 @@ class ProductLookupController
                 "Product not found\n"
             )->withStatus(Response::STATUS_NOT_FOUND);
         }
-        $data = [
-            "name" => $product->title,
-            "description" => $product->description,
-            "price" => $product->price,
-        ];
+        $productLookupDataProvider = new ProductLookupDataProviderAbstraction();
+        $data = $productLookupDataProvider->getData($product);
 
         return Response::json($data);
     }

@@ -8,10 +8,11 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Message\ServerRequest;
 use Tbd\Main\Products\ProductRepositoryInterface;
+use Tbd\Main\FeatureFlags\FeatureFlag;
 
 class ProductLookupControllerTest extends TestCase
 {
-    public function testControllerReturnsValidResponse()
+    public function testControllerReturnsValidResponseWithRecommendationsDisabled()
     {
         $request = new ServerRequest('GET', 'http://example.com/products/3');
         $request = $request->withAttribute("id", "3");
@@ -30,11 +31,21 @@ class ProductLookupControllerTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals('application/json', $response->getHeaderLine('Content-Type'));
 
-        $output='{
+        if(FeatureFlag::isEnabled('show_recommendations_on_product_lookup')){
+            $output='{
+    "name": "test",
+    "description": "description",
+    "price": 100.0,
+    "recommendations": []
+}';
+        } else {
+            $output='{
     "name": "test",
     "description": "description",
     "price": 100.0
 }';
+        }
+
         $this->assertEquals($output, (string) trim($response->getBody()));
     }
 
